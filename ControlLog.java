@@ -20,18 +20,18 @@ public class ControlLog {
     }
 
     
-    public boolean tambahLog(String NoHp, String Provider, int nominal){
+    public boolean tambahLog(String NoHp, String Provider, String nominal){
         
         
         return false;
     }
     
-    public void lihatLog(){
+    public void lihatLog(int awal, int akhir){
         
         
     }
     
-    public boolean hapusLog(int Id){
+    public boolean hapusLog(String Id){
         
         return false;
     }

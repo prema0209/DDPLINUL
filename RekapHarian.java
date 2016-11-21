@@ -5,22 +5,45 @@
  */
 package inulcell;
 
+import javax.swing.table.DefaultTableModel;
+
+
 /**
  *
  * @author prema
  */
 public class RekapHarian extends javax.swing.JFrame {
 
+   
+    String[] title= {"No","Jumlah Transaksi","Provider Juara","Keuntungan"};
     /**
      * Creates new form RekapHarian
      */
     
-    RekapDataPenjualanUi menu;
+    
     
     public RekapHarian() {
         initComponents();
-        menu=new RekapDataPenjualanUi();
+       
+        
     }
+    
+    
+     private void updateTable(){
+        RekapControl control=new RekapControl();
+        Object[][] data = new Object[4][4];
+        
+        for(int i=0;i<4;i++){
+           data[i][0]=i+1;
+           data[i][1]=control.Harian(i+1, 2);
+           data[i][2]=control.Harian(i+1, 3);
+           data[i][3]=control.Harian(i+1, 4);
+            
+        }
+        
+        tabelHarian.setModel(new DefaultTableModel(data,title));
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -33,16 +56,17 @@ public class RekapHarian extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tabelHarian = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         Back = new javax.swing.JButton();
+        btnTampilkan = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 0, 0), null));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabelHarian.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 { new Integer(1), null, null, null},
                 { new Integer(2), null, null, null},
@@ -68,7 +92,7 @@ public class RekapHarian extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tabelHarian);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("Harian");
@@ -80,23 +104,31 @@ public class RekapHarian extends javax.swing.JFrame {
             }
         });
 
+        btnTampilkan.setText("tampilkan");
+        btnTampilkan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTampilkanActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(47, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(52, 52, 52)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 418, Short.MAX_VALUE)
                 .addGap(64, 64, 64))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(235, 235, 235)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addComponent(Back)))
+                .addGap(235, 235, 235)
+                .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addComponent(Back)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnTampilkan)
+                .addGap(47, 47, 47))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -106,7 +138,9 @@ public class RekapHarian extends javax.swing.JFrame {
                 .addGap(45, 45, 45)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
-                .addComponent(Back)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Back)
+                    .addComponent(btnTampilkan))
                 .addGap(23, 23, 23))
         );
 
@@ -131,8 +165,14 @@ public class RekapHarian extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
-        // TODO add your handling code here:
+        RekapDataPenjualanUi menu=new RekapDataPenjualanUi();
+        menu.setVisible(true);
+        dispose();
     }//GEN-LAST:event_BackActionPerformed
+
+    private void btnTampilkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTampilkanActionPerformed
+        updateTable();
+    }//GEN-LAST:event_btnTampilkanActionPerformed
 
     /**
      * @param args the command line arguments
@@ -171,9 +211,10 @@ public class RekapHarian extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Back;
+    private javax.swing.JButton btnTampilkan;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tabelHarian;
     // End of variables declaration//GEN-END:variables
 }

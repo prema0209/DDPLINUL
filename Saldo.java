@@ -9,9 +9,6 @@ package inulcell;
  *
  * @author prema
  */
-
-//tes
-
 public class Saldo {
     
     

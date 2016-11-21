@@ -21,6 +21,7 @@ public class LogInUI extends javax.swing.JFrame {
     
     public LogInUI() {
         initComponents();
+        int a=10;
        
     }
 

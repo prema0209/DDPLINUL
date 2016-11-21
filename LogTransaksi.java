@@ -18,12 +18,13 @@ public class LogTransaksi extends javax.swing.JFrame {
     MenuAwal Menu;
     TambahLog tambah;
     LihatLog lihat;
+    HapusLog hapus;
     
     public LogTransaksi() {
         initComponents();
-        Menu=new MenuAwal();
-        tambah=new TambahLog();
-        lihat=new LihatLog();
+        
+        
+        
     }
 
     /**
@@ -113,8 +114,8 @@ public class LogTransaksi extends javax.swing.JFrame {
                             .addComponent(LihatLog, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(HapusLog, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -129,8 +130,8 @@ public class LogTransaksi extends javax.swing.JFrame {
                         .addComponent(HapusLog))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(31, 31, 31)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(35, 35, 35)
                 .addComponent(Back)
                 .addGap(20, 20, 20))
         );
@@ -156,19 +157,27 @@ public class LogTransaksi extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void TambahLogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TambahLogActionPerformed
-        // TODO add your handling code here:
+        tambah=new TambahLog();
+        tambah.setVisible(true);
+        dispose();
     }//GEN-LAST:event_TambahLogActionPerformed
 
     private void LihatLogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LihatLogActionPerformed
-        // TODO add your handling code here:
+        lihat=new LihatLog();
+        lihat.setVisible(true);
+        dispose();
     }//GEN-LAST:event_LihatLogActionPerformed
 
     private void HapusLogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HapusLogActionPerformed
-        // TODO add your handling code here:
+        hapus=new HapusLog();
+        hapus.setVisible(true);
+        dispose();
     }//GEN-LAST:event_HapusLogActionPerformed
 
     private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
-        // TODO add your handling code here:
+        Menu=new MenuAwal();
+        Menu.setVisible(true);
+        dispose();
     }//GEN-LAST:event_BackActionPerformed
 
     /**

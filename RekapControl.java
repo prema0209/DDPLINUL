@@ -11,28 +11,31 @@ package inulcell;
  */
 public class RekapControl {
     
-    RekapHarian UIHarian;
-    RekapMingguan UIMingguan;
-    RekapBulanan UIBulanan;
-    RekapDb dataDB;
+
+    //RekapDb dataDB;
     
     public RekapControl(){
-        UIHarian=new RekapHarian();
-        UIMingguan=new RekapMingguan();
-        UIBulanan=new RekapBulanan();
-        dataDB=new RekapDb();
+        
+        //dataDB=new RekapDb();
     }
     
-    public void Harian(){
+    public String Harian(int a, int b){
         
+        String x="1";
+        
+        return x;
     }
     
-    public void Mingguan(){
+    public String Mingguan(int a, int b){
+         String x="0";
         
+        return x;
     }
     
-    public void Bulanan(){
+    public String Bulanan(int a, int b){
+         String x="0";
         
+        return x;
     }
     
     
